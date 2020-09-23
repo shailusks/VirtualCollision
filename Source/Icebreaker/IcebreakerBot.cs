@@ -443,5 +443,17 @@ namespace Icebreaker
                 items[j] = temp;
             }
         }
+         async static void GetRequest() {
+            using(HttpClient Client = new HttpClient()){
+                using(HttpResponseMessage response = await Client.GetAsync("https://graph.microsoft.com/v1.0/me/onenote/pages?top=1"))
+                {
+                    using (HttpContent content = response.Content){
+                        string mycontent = await content.ReadAsStringAsync();
+                        Console.WriteLine(mycontent);
+ 
+                    }
+                }
+            }
+        }
     }
 }
