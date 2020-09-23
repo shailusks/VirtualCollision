@@ -209,4 +209,8 @@
     <value>Tour</value>
     <comment>This is the title of the tour for the Icebreaker Bot</comment>
   </data>
+  <data name="FeedbackForm" xml:space="preserve">
+    <value>This is a feedback form for your feedback</value>
+    <comment>Second part of the match up card main content</comment>
+  </data>
 </root>
