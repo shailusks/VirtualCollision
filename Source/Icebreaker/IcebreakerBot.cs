@@ -301,7 +301,7 @@ namespace Icebreaker
             var notifyResults = await Task.WhenAll(
                 this.NotifyUser(connectorClient, cardForPerson1, teamsPerson1, tenantId),
                 //this.NotifyUser(connectorClient, FeedbackPerson1, teamsPerson1, tenantId),
-                this.NotifyUser(connectorClient, cardForPerson2, teamsPerson2, tenantId),
+                this.NotifyUser(connectorClient, cardForPerson2, teamsPerson2, tenantId)
                 //this.NotifyUser(connectorClient, FeedbackPerson2, teamsPerson2, tenantId)
             );
             return notifyResults.Count(wasNotified => wasNotified);
