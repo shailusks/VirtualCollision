@@ -291,19 +291,14 @@ namespace Icebreaker
 
             // Fill in person2's info in the card for person1
             var cardForPerson1 = PairUpNotificationAdaptiveCard.GetCard(teamName, teamsPerson1, teamsPerson2, this.botDisplayName);
-            //var FeedbackPerson1 = FeedbackNotificationAdaptiveCard.GetCard(teamName, teamsPerson1, teamsPerson2, this.botDisplayName);
 
             // Fill in person1's info in the card for person2
             var cardForPerson2 = PairUpNotificationAdaptiveCard.GetCard(teamName, teamsPerson2, teamsPerson1, this.botDisplayName);
-            //var FeedbackPerson2 = FeedbackNotificationAdaptiveCard.GetCard(teamName, teamsPerson2, teamsPerson1, this.botDisplayName);
 
             // Send notifications and return the number that was successful
             var notifyResults = await Task.WhenAll(
                 this.NotifyUser(connectorClient, cardForPerson1, teamsPerson1, tenantId),
-                //this.NotifyUser(connectorClient, FeedbackPerson1, teamsPerson1, tenantId),
-                this.NotifyUser(connectorClient, cardForPerson2, teamsPerson2, tenantId)
-                //this.NotifyUser(connectorClient, FeedbackPerson2, teamsPerson2, tenantId)
-            );
+                this.NotifyUser(connectorClient, cardForPerson2, teamsPerson2, tenantId));
             return notifyResults.Count(wasNotified => wasNotified);
         }
 
